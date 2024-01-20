@@ -42,7 +42,8 @@ local key = {
   { key = [[\]], mods = mod.SUPER, action = act.SplitVertical({ domain = 'CurrentPaneDomain'}), },
   { key = [[\]], mods = mod.SUPER_REV, action = act.SplitHorizontal({ domain = 'CurrentPaneDomain'}), },
 
-  -- panes: [zoom & close pane] --
+  -- panes: [Full & zoom & close pane] --
+  { key = 'f', mods = mod.SUPER_REV, action = act.ToggleFullScreen },
   { key = 'z', mods = mod.SUPER_REV, action = act.TogglePaneZoomState },
   { key = 'w', mods = mod.SUPER, action = act.CloseCurrentPane({ confirm = false }) },
 
