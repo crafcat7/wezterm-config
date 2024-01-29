@@ -7,6 +7,7 @@ local mod = {}
 if platform.is_mac then
   mod.SUPER = 'SUPER'
   mod.SUPER_REV = 'SUPER|CTRL'
+  mod.OPT = 'OPT'
 end
 
 local key = {
@@ -17,6 +18,11 @@ local key = {
   { key = 'F4', mods = mod.SUPER, action = act.ShowTabNavigator },
   { key = 'F12', mods = mod.SUPER, action = act.ShowDebugOverlay },
   { key = 'f', mods = mod.SUPER, action = act.Search({ CaseInSensitiveString = '' }) },
+
+  -- Make Option-Left equivalent to Alt-b which many line editors interpret as backward-word --
+  {key="LeftArrow", mods=mod.OPT, action=wezterm.action{SendString="\x1bb"}},
+  -- Make Option-Right equivalent to Alt-f; forward-word --
+  {key="RightArrow", mods=mod.OPT, action=wezterm.action{SendString="\x1bf"}},
 
   -- copy --
   { key = 'c', mods = mod.SUPER, action = act.CopyTo('Clipboard') },
