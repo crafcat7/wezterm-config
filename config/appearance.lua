@@ -34,6 +34,9 @@ return {
   -- scroll bar --
   enable_scroll_bar = true,
   min_scroll_bar_height = "3cell",
+  colors = {
+    scrollbar_thumb = '#758a99',
+  },
 
   -- tab bar --
   enable_tab_bar = true,
