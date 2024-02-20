@@ -68,7 +68,7 @@ return {
   },
   window_close_confirmation = 'AlwaysPrompt',
   window_frame = {
-     active_titlebar_bg = '#2e4e7e',
+     active_titlebar_bg = '#edd1d8',
      inactive_titlebar_bg = '#a1afc9',
   },
 
