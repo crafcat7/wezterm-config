@@ -8,6 +8,10 @@ if platform.is_mac then
   mod.SUPER = 'SUPER'
   mod.SUPER_REV = 'SUPER|CTRL'
   mod.OPT = 'OPT'
+else
+  mod.SUPER = 'ALT'
+  mod.SUPER_REV = 'ALT|CTRL'
+  mod.OPT = 'ALT'
 end
 
 local key = {
