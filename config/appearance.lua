@@ -1,5 +1,29 @@
 local wezterm = require('wezterm')
 
+-- Auto Theme --
+
+local dark_theme = ({
+  'BlulocoDark',
+})[1]
+
+local light_theme = ({
+  'Catppuccin Latte',
+})[1]
+
+local function scheme_for_appearance(appearance)
+  return appearance:find('Dark') and dark_theme or light_theme
+end
+
+wezterm.on('window-config-reloaded', function(window)
+  local overrides = window:get_config_overrides() or {}
+  local appearance = window:get_appearance()
+  local scheme = scheme_for_appearance(appearance)
+  if overrides.color_scheme ~= scheme then
+    overrides.color_scheme = scheme
+    window:set_config_overrides(overrides)
+  end
+end)
+
 return {
 
   -- Old Backup --
@@ -26,7 +50,7 @@ return {
   webgpu_power_preference = 'HighPerformance',
 
   -- color --
-  color_scheme = "BlulocoDark",
+  color_scheme = dark_theme,
 
   -- background --
   window_background_opacity = 0.85,
