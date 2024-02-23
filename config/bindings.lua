@@ -7,10 +7,12 @@ local mod = {}
 if platform.is_mac then
   mod.SUPER = 'SUPER'
   mod.SUPER_REV = 'SUPER|CTRL'
+  mod.SUPER_SFT = 'SUPER|SHIFT'
   mod.OPT = 'OPT'
 else
   mod.SUPER = 'ALT'
   mod.SUPER_REV = 'ALT|CTRL'
+  mod.SUPER_SFT = 'ALT|SHIFT'
   mod.OPT = 'ALT'
 end
 
@@ -22,6 +24,7 @@ local key = {
   { key = 'F4', mods = mod.SUPER, action = act.ShowTabNavigator },
   { key = 'F12', mods = mod.SUPER, action = act.ShowDebugOverlay },
   { key = 'f', mods = mod.SUPER, action = act.Search({ CaseInSensitiveString = '' }) },
+  { key = 'q', mods = mod.SUPER, action = wezterm.action.QuitApplication },
 
   -- Make Option-Left equivalent to Alt-b which many line editors interpret as backward-word --
   {key="LeftArrow", mods=mod.OPT, action=wezterm.action{SendString="\x1bb"}},
@@ -31,6 +34,10 @@ local key = {
   -- copy --
   { key = 'c', mods = mod.SUPER, action = act.CopyTo('Clipboard') },
   { key = 'v', mods = mod.SUPER, action = act.PasteFrom('Clipboard') },
+
+  -- view --
+  { key = '+', mods = mod.SUPER_SFT, action = act.IncreaseFontSize },
+  { key = '-', mods = mod.SUPER_SFT, action = act.DecreaseFontSize },
 
   -- tabs --
   -- tabs: [spawn & close] --
