@@ -2,27 +2,27 @@ local wezterm = require('wezterm')
 
 -- Auto Theme --
 
-local dark_theme = ({
-  'BlulocoDark',
-})[1]
+-- local dark_theme = ({
+--   'BlulocoDark',
+-- })[1]
 
-local light_theme = ({
-  'Catppuccin Latte',
-})[1]
+-- local light_theme = ({
+--   'Catppuccin Latte',
+-- })[1]
 
-local function scheme_for_appearance(appearance)
-  return appearance:find('Dark') and dark_theme or light_theme
-end
+-- local function scheme_for_appearance(appearance)
+--   return appearance:find('Dark') and dark_theme or light_theme
+-- end
 
-wezterm.on('window-config-reloaded', function(window)
-  local overrides = window:get_config_overrides() or {}
-  local appearance = window:get_appearance()
-  local scheme = scheme_for_appearance(appearance)
-  if overrides.color_scheme ~= scheme then
-    overrides.color_scheme = scheme
-    window:set_config_overrides(overrides)
-  end
-end)
+-- wezterm.on('window-config-reloaded', function(window)
+--   local overrides = window:get_config_overrides() or {}
+--   local appearance = window:get_appearance()
+--   local scheme = scheme_for_appearance(appearance)
+--   if overrides.color_scheme ~= scheme then
+--     overrides.color_scheme = scheme
+--     window:set_config_overrides(overrides)
+--   end
+-- end)
 
 return {
 
@@ -50,22 +50,23 @@ return {
   webgpu_power_preference = 'HighPerformance',
 
   -- color --
-  color_scheme = dark_theme,
+  -- color_scheme = dark_theme,
+  color_scheme = "Catppuccin Mocha",
 
   -- background --
   window_background_opacity = 0.85,
 
   -- scroll bar --
-  enable_scroll_bar = true,
-  min_scroll_bar_height = "3cell",
-  colors = {
-    scrollbar_thumb = '#758a99',
-  },
+  -- enable_scroll_bar = true,
+  -- min_scroll_bar_height = "3cell",
+  -- colors = {
+  --   scrollbar_thumb = '#758a99',
+  -- },
 
   -- tab bar --
   enable_tab_bar = true,
   hide_tab_bar_if_only_one_tab = false,
-  use_fancy_tab_bar = true,
+  use_fancy_tab_bar = false,
   tab_bar_at_bottom = true,
   tab_max_width = 30,
   show_tab_index_in_tab_bar = true,
